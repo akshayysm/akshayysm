@@ -1,1 +1,1 @@
-![Terminal Stats](dark_mode.svg)
+![Terminal Stats](https://raw.githubusercontent.com/akshayysm/akshayysm/main/dark_mode.svg)
