@@ -2,12 +2,14 @@ import os
 import datetime
 import requests
 
+# GitHub username to query
 USERNAME = "akshayysm"
+# GitHub secret token for authenticated queries (to get private stats and more API limit)
 TOKEN = os.getenv("GH_TOKEN")
 
 HEADERS = {"Authorization": f"bearer {TOKEN}"} if TOKEN else {}
 
-# GraphQL Query to fetch user stats
+# GraphQL Query to fetch user stats (Simplified)
 QUERY = """
 query($username: String!) {
   user(login: $username) {
@@ -16,15 +18,6 @@ query($username: String!) {
       totalCount
       nodes {
         stargazerCount
-        defaultBranchRef {
-          target {
-            ... on Commit {
-              history {
-                totalCount
-              }
-            }
-          }
-        }
       }
     }
     repositoriesContributedTo(first: 100, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
@@ -42,26 +35,37 @@ query($username: String!) {
 """
 
 def run_query(query, variables):
-    request = requests.post(
-        "https://api.github.com/graphql",
-        json={"query": query, "variables": variables},
-        headers=HEADERS,
-    )
-    if request.status_code == 200:
-        return request.json()
-    raise Exception(f"Query failed with code {request.status_code}: {request.text}")
+    if not TOKEN:
+        print("Warning: GH_TOKEN secret not found. Falling back to public metrics.")
+    try:
+        request = requests.post(
+            "https://api.github.com/graphql",
+            json={"query": query, "variables": variables},
+            headers=HEADERS,
+        )
+        if request.status_code == 200:
+            return request.json()
+        print(f"GraphQL request failed with code {request.status_code}: {request.text}")
+        return None
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return None
 
 def calculate_uptime(created_at_str):
-    created_at = datetime.datetime.strptime(created_at_str, "%Y-%m-%dT%H:%M:%SZ")
-    now = datetime.datetime.utcnow()
-    diff = now - created_at
-    
-    years = diff.days // 365
-    months = (diff.days % 365) // 30
-    days = (diff.days % 365) % 30
-    return f"{years} years, {months} months, {days} days"
+    try:
+        created_at = datetime.datetime.strptime(created_at_str, "%Y-%m-%dT%H:%M:%SZ")
+        now = datetime.datetime.utcnow()
+        diff = now - created_at
+        
+        years = diff.days // 365
+        months = (diff.days % 365) // 30
+        days = (diff.days % 365) % 30
+        return f"{years} years, {months} months, {days} days"
+    except Exception:
+        return "1 year, 0 months, 0 days"
 
 def generate_svg(stats, theme="dark"):
+    """Generates the simplified, clean terminal SVG."""
     is_dark = theme == "dark"
     bg_color = "#0d1117" if is_dark else "#ffffff"
     border_color = "#30363d" if is_dark else "#d0d7de"
@@ -80,7 +84,7 @@ def generate_svg(stats, theme="dark"):
     .dot-yellow {{ fill: #ffbd2e; }}
     .dot-green {{ fill: #27c93f; }}
     .title {{ fill: {dim_color}; font-family: monospace; font-size: 13px; }}
-    .text-art {{ fill: {text_color}; font-family: 'Courier New', Courier, monospace; font-size: 12px; white-space: pre; }}
+    .text-art {{ fill: {text_color}; font-family: 'Courier New', Courier, monospace; font-size: 11px; white-space: pre; }}
     .accent {{ fill: {accent_color}; font-weight: bold; }}
     .dim {{ fill: {dim_color}; }}
     .green {{ fill: {green_color}; }}
@@ -96,39 +100,43 @@ def generate_svg(stats, theme="dark"):
 
   <g transform="translate(20, 55)">
     <text class="text-art" xml:space="preserve">
-      <tspan x="0" dy="14">  g@M%@%%@N%Nw,,                <tspan class="accent">akshay@akshayysm</tspan> <tspan class="dim">-------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14">  ,M*|`||*%gNM=]mM%g||%N,       . OS: ...................... Linux / macOS / Windows</tspan>
-      <tspan x="0" dy="14">  p!`   '!  |'`  ''|||jhlj%w     . Uptime: .................. {stats['uptime']}</tspan>
-      <tspan x="0" dy="14"> ,@L `               ''|`|j%M]%M  . Host: .......................... Software Developer</tspan>
-      <tspan x="0" dy="14"> jj'` .,wp@pw,        .  ''''|%Wg . IDE: ............................ VSCode, Neovim</tspan>
-      <tspan x="0" dy="14">/{{\|]@@@@@@@@@@pp.         |||||  </tspan>
-      <tspan x="0" dy="14">  ']@@@@@@@@@@@@@@p               <tspan class="accent">- Languages -----------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14">,  :]%%@@@@%%%%%%k%h '*||mkr    * . Programming: ............ Python, JavaScript, C++</tspan>
-      <tspan x="0" dy="14">'  j%M`    |jkk'   ~nrn=|i   ;    . Computer: ................. HTML, CSS, JSON, Markdown</tspan>
-      <tspan x="0" dy="14">!  jrr*^~              `"! L'':!  </tspan>
-      <tspan x="0" dy="14"> j  lp;,.  ,/@@    ,;\nmy "  ,~   <tspan class="accent">- Contact -------------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14">i r @@@@mmHM @@@@  ^****M*,p ;,   . GitHub: ............................... https://github.com/akshayysm</tspan>
-      <tspan x="0" dy="14">|  ]@@@@HHH]g@M%%%%H,jmgpmb%  j   </tspan>
-      <tspan x="0" dy="14">;;%%%%%%k%@[,.n|;.;j%%k|#%%',[    <tspan class="accent">- GitHub Stats --------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14"> H|%%k%%%%j%k||,;;|!!'|ij}}@     . Repos: .... <tspan class="accent">{stats['repos']}</tspan> {{Contributed: {stats['contributed']}}} | Stars: ......... <tspan class="accent">{stats['stars']}</tspan></tspan>
-      <tspan x="0" dy="14"> "djjmkL,"]] [,,,,wwxw;|#kjk`    . Commits: ................. <tspan class="accent">{stats['commits']:,}</tspan> | Followers: ..... <tspan class="accent">{stats['followers']}</tspan></tspan>
-      <tspan x="0" dy="14">   %;%km%%%%M%M|%%jkkii|||[      . Lines of Code on GitHub: . <tspan class="accent">{stats['total_loc']:,}</tspan> ( <tspan class="green">{stats['additions']:,}++</tspan>, <tspan class="red">{stats['deletions']:,}--</tspan> )</tspan>
+<tspan x="0" dy="14">  <tspan class="accent">akshay@akshayysm</tspan> <tspan class="dim">------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . OS: ...................... Linux / macOS / Windows / Android 14</tspan>
+<tspan x="0" dy="14">  . Uptime: .................. {stats['uptime']}</tspan>
+<tspan x="0" dy="14">  . Host: .......................... Software Developer</tspan>
+<tspan x="0" dy="14">  . IDE: ............................ VSCode, Neovim</tspan>
+<tspan x="0" dy="24">  <tspan class="accent">- Languages ---------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . Programming: ............ Python, JavaScript, C++</tspan>
+<tspan x="0" dy="14">  . Computer: ................. HTML, CSS, JSON, Markdown</tspan>
+<tspan x="0" dy="24">  <tspan class="accent">- Contact -----------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . GitHub: ............................... https://github.com/akshayysm</tspan>
+<tspan x="0" dy="24">  <tspan class="accent">- GitHub Stats ------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . Repos: .... <tspan class="accent">{stats['repos']}</tspan> {{Contributed: {stats['contributed']}}} | Stars: ......... <tspan class="accent">{stats['stars']}</tspan></tspan>
+<tspan x="0" dy="14">  . Commits: ................. <tspan class="accent">{stats['commits']:,}</tspan> | Followers: ..... <tspan class="accent">{stats['followers']}</tspan></tspan>
+<tspan x="0" dy="14">  . Lines of Code on GitHub: . <tspan class="accent">{stats['total_loc']:,}</tspan> ( <tspan class="green">{stats['additions']:,}++</tspan>, <tspan class="red">{stats['deletions']:,}--</tspan> )</tspan>
     </text>
   </g>
 </svg>"""
 
 def main():
     res = run_query(QUERY, {"username": USERNAME})
-    data = res["data"]["user"]
     
-    uptime = calculate_uptime(data["createdAt"])
-    repos = data["repositories"]["totalCount"]
-    contributed = data["repositoriesContributedTo"]["totalCount"]
-    followers = data["followers"]["totalCount"]
-    
-    stars = sum(repo["stargazerCount"] for repo in data["repositories"]["nodes"])
-    commits = data["contributionsCollection"]["totalCommitContributions"] + data["contributionsCollection"]["restrictedContributionsCount"]
-    
+    # Process stats (Handling failure cases gracefully)
+    if res and "data" in res and res["data"].get("user"):
+        data = res["data"]["user"]
+        uptime = calculate_uptime(data["createdAt"])
+        repos = data["repositories"]["totalCount"]
+        contributed = data["repositoriesContributedTo"]["totalCount"]
+        followers = data["followers"]["totalCount"]
+        
+        stars = sum(repo["stargazerCount"] for repo in data["repositories"]["nodes"])
+        commits = data["contributionsCollection"]["totalCommitContributions"] + data["contributionsCollection"]["restrictedContributionsCount"]
+    else:
+        # Minimum default fallback values
+        uptime = "1 year, 0 months, 0 days"
+        repos = contributed = followers = stars = commits = 0
+
+    # Mock LOC data for demo
     additions = commits * 220
     deletions = commits * 35
     total_loc = additions - deletions
@@ -145,6 +153,7 @@ def main():
         "total_loc": total_loc
     }
 
+    # Write SVGs (Always utf-8)
     with open("dark_mode.svg", "w", encoding="utf-8") as f:
         f.write(generate_svg(stats, theme="dark"))
 
