@@ -140,6 +140,8 @@ def generate_svg(stats, theme="dark"):
 <tspan x="0" dy="18"> </tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Languages.Programming &amp; Technologies:</tspan> .......... Rust, TypeScript, Anchor, Solana</tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Languages.Real:</tspan> .................................. English, Hindi, Kannada</tspan>
+<text x="25" y="200" class="dim">- Work --------------------------------------------------------</text>
+    <text x="25" y="220" class="text">. <tspan class="label">Turbin3:</tspan> ........................................ 2x Graduate</text>
 <tspan x="0" dy="18"> </tspan>
 <tspan x="0" dy="14">  <tspan class="dim">- Contact ------------------------------------------------------------------</tspan></tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Email.Work:</tspan> .......................................... akshaysm.dev@gmail.com</tspan>

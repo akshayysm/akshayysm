@@ -25,12 +25,14 @@
     <text class="text-art" xml:space="preserve">
 <tspan x="0" dy="14">  <tspan class="text-art">akshay@akshayysm</tspan> <tspan class="dim">----------------------------------------------------------------</tspan></tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">OS:</tspan> .............................................................. macOS</tspan>
-<tspan x="0" dy="14">  . <tspan class="orange">Uptime:</tspan> ................................... 4 years, 1 months, 7 days</tspan>
+<tspan x="0" dy="14">  . <tspan class="orange">Uptime:</tspan> ................................... 1 year, 0 months, 0 days</tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Role:</tspan> ............................................................ Builder</tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">IDE:</tspan> ............................................................. VS Code</tspan>
 <tspan x="0" dy="18"> </tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Languages.Programming &amp; Technologies:</tspan> .......... Rust, TypeScript, Anchor, Solana</tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Languages.Real:</tspan> .................................. English, Hindi, Kannada</tspan>
+<text x="25" y="200" class="dim">- Work --------------------------------------------------------</text>
+    <text x="25" y="220" class="text">. <tspan class="label">Turbin3:</tspan> ........................................ 2x Graduate</text>
 <tspan x="0" dy="18"> </tspan>
 <tspan x="0" dy="14">  <tspan class="dim">- Contact ------------------------------------------------------------------</tspan></tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Email.Work:</tspan> .......................................... akshaysm.dev@gmail.com</tspan>
@@ -39,8 +41,8 @@
 <tspan x="0" dy="14">  . <tspan class="orange">Discord:</tspan> .......................................................... akshaaytwt</tspan>
 <tspan x="0" dy="18"> </tspan>
 <tspan x="0" dy="14">  <tspan class="dim">- GitHub Stats -------------------------------------------------------------</tspan></tspan>
-<tspan x="0" dy="14">  . <tspan class="orange">Repos:</tspan> .... <tspan class="blue">17</tspan> {<tspan class="orange">Contributed:</tspan> <tspan class="blue">0</tspan>} | <tspan class="orange">Stars:</tspan> ......... <tspan class="blue">0</tspan></tspan>
-<tspan x="0" dy="14">  . <tspan class="orange">Commits:</tspan> ................. <tspan class="blue">97</tspan> | <tspan class="orange">Followers:</tspan> ..... <tspan class="blue">54</tspan></tspan>
+<tspan x="0" dy="14">  . <tspan class="orange">Repos:</tspan> .... <tspan class="blue">10</tspan> {<tspan class="orange">Contributed:</tspan> <tspan class="blue">5</tspan>} | <tspan class="orange">Stars:</tspan> ......... <tspan class="blue">0</tspan></tspan>
+<tspan x="0" dy="14">  . <tspan class="orange">Commits:</tspan> ................. <tspan class="blue">100</tspan> | <tspan class="orange">Followers:</tspan> ..... <tspan class="blue">2</tspan></tspan>
 <tspan x="0" dy="14">  . <tspan class="orange">Lines of Code on GitHub:</tspan> . <tspan class="blue">73,959</tspan> ( <tspan class="green">75,275++</tspan>, <tspan class="red">1,316--</tspan> )</tspan>
     </text>
   </g>
