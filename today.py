@@ -201,8 +201,5 @@ def main():
     with open("dark_mode.svg", "w", encoding="utf-8") as f:
         f.write(generate_svg(stats, theme="dark"))
 
-    with open("light_mode.svg", "w", encoding="utf-8") as f:
-        f.write(generate_svg(stats, theme="light"))
-
 if __name__ == "__main__":
     main()
