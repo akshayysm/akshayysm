@@ -6,7 +6,7 @@
     .dot-yellow { fill: #ffbd2e; }
     .dot-green { fill: #27c93f; }
     .title { fill: #57606a; font-family: monospace; font-size: 13px; }
-    .text-art { fill: #24292f; font-family: 'Courier New', Courier, monospace; font-size: 12px; white-space: pre; }
+    .text-art { fill: #24292f; font-family: 'Courier New', Courier, monospace; font-size: 11px; white-space: pre; }
     .accent { fill: #0969da; font-weight: bold; }
     .dim { fill: #57606a; }
     .green { fill: #1a7f37; }
@@ -22,24 +22,20 @@
 
   <g transform="translate(20, 55)">
     <text class="text-art" xml:space="preserve">
-      <tspan x="0" dy="14">  g@M%@%%@N%Nw,,                <tspan class="accent">akshay@akshayysm</tspan> <tspan class="dim">-------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14">  ,M*|`||*%gNM=]mM%g||%N,       . OS: ...................... Linux / macOS / Windows</tspan>
-      <tspan x="0" dy="14">  p!`   '!  |'`  ''|||jhlj%w     . Uptime: .................. 4 years, 1 months, 6 days</tspan>
-      <tspan x="0" dy="14"> ,@L `               ''|`|j%M]%M  . Host: .......................... Software Developer</tspan>
-      <tspan x="0" dy="14"> jj'` .,wp@pw,        .  ''''|%Wg . IDE: ............................ VSCode, Neovim</tspan>
-      <tspan x="0" dy="14">/{\|]@@@@@@@@@@pp.         |||||  </tspan>
-      <tspan x="0" dy="14">  ']@@@@@@@@@@@@@@p               <tspan class="accent">- Languages -----------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14">,  :]%%@@@@%%%%%%k%h '*||mkr    * . Programming: ............ Python, JavaScript, C++</tspan>
-      <tspan x="0" dy="14">'  j%M`    |jkk'   ~nrn=|i   ;    . Computer: ................. HTML, CSS, JSON, Markdown</tspan>
-      <tspan x="0" dy="14">!  jrr*^~              `"! L'':!  </tspan>
-      <tspan x="0" dy="14"> j  lp;,.  ,/@@    ,;
-my "  ,~   <tspan class="accent">- Contact -------------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14">i r @@@@mmHM @@@@  ^****M*,p ;,   . GitHub: ............................... https://github.com/akshayysm</tspan>
-      <tspan x="0" dy="14">|  ]@@@@HHH]g@M%%%%H,jmgpmb%  j   </tspan>
-      <tspan x="0" dy="14">;;%%%%%%k%@[,.n|;.;j%%k|#%%',[    <tspan class="accent">- GitHub Stats --------------------------------------</tspan></tspan>
-      <tspan x="0" dy="14"> H|%%k%%%%j%k||,;;|!!'|ij}@     . Repos: .... <tspan class="accent">17</tspan> {Contributed: 0} | Stars: ......... <tspan class="accent">0</tspan></tspan>
-      <tspan x="0" dy="14"> "djjmkL,"]] [,,,,wwxw;|#kjk`    . Commits: ................. <tspan class="accent">63</tspan> | Followers: ..... <tspan class="accent">54</tspan></tspan>
-      <tspan x="0" dy="14">   %;%km%%%%M%M|%%jkkii|||[      . Lines of Code on GitHub: . <tspan class="accent">11,655</tspan> ( <tspan class="green">13,860++</tspan>, <tspan class="red">2,205--</tspan> )</tspan>
+<tspan x="0" dy="14">  <tspan class="accent">akshay@akshayysm</tspan> <tspan class="dim">------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . OS: ...................... Linux / macOS / Windows / Android 14</tspan>
+<tspan x="0" dy="14">  . Uptime: .................. 4 years, 1 months, 7 days</tspan>
+<tspan x="0" dy="14">  . Host: .......................... Software Developer</tspan>
+<tspan x="0" dy="14">  . IDE: ............................ VSCode, Neovim</tspan>
+<tspan x="0" dy="24">  <tspan class="accent">- Languages ---------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . Programming: ............ Python, JavaScript, C++</tspan>
+<tspan x="0" dy="14">  . Computer: ................. HTML, CSS, JSON, Markdown</tspan>
+<tspan x="0" dy="24">  <tspan class="accent">- Contact -----------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . GitHub: ............................... https://github.com/akshayysm</tspan>
+<tspan x="0" dy="24">  <tspan class="accent">- GitHub Stats ------------------------------------------------------</tspan></tspan>
+<tspan x="0" dy="14">  . Repos: .... <tspan class="accent">17</tspan> {Contributed: 0} | Stars: ......... <tspan class="accent">0</tspan></tspan>
+<tspan x="0" dy="14">  . Commits: ................. <tspan class="accent">66</tspan> | Followers: ..... <tspan class="accent">54</tspan></tspan>
+<tspan x="0" dy="14">  . Lines of Code on GitHub: . <tspan class="accent">12,210</tspan> ( <tspan class="green">14,520++</tspan>, <tspan class="red">2,310--</tspan> )</tspan>
     </text>
   </g>
 </svg>
