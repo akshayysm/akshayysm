@@ -187,7 +187,7 @@ def generate_svg(stats):
 
     <!-- Work Section -->
     <text x="430" y="222" class="section-header"><tspan class="dim">- </tspan>Work <tspan class="dim">------------------------------------------</tspan></text>
-    <text x="430" y="244" class="text">. <tspan class="label">Turbin3:</tspan> .......................... 2x Graduate</text>
+    <text x="430" y="244" class="text">. <tspan class="label">Turbin3:</tspan> .......................... Graduate</text>
 
     <!-- Contact Section -->
     <text x="430" y="281" class="section-header"><tspan class="dim">- </tspan>Contact <tspan class="dim">---------------------------------------</tspan></text>
