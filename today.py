@@ -185,9 +185,6 @@ def generate_svg(stats):
     <text x="430" y="163" class="text">. <tspan class="label">Languages.Tech:</tspan> ................... Rust, TypeScript, Anchor, Solana</text>
     <text x="430" y="185" class="text">. <tspan class="label">Languages.Real:</tspan> ................... English, Hindi, Kannada</text>
 
-    <!-- Experience Section -->
-    <text x="430" y="222" class="section-header"><tspan class="dim">- </tspan>Experience <tspan class="dim">------------------------------------------</tspan></text>
-    <text x="430" y="244" class="text">. <tspan class="label">Turbin3:</tspan> .......................... Graduate</text>
 
     <!-- Contact Section -->
     <text x="430" y="281" class="section-header"><tspan class="dim">- </tspan>Contact <tspan class="dim">---------------------------------------</tspan></text>
