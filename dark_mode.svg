@@ -91,5 +91,5 @@
     <!-- GitHub Stats Section -->
     <text x="430" y="406" class="section-header"><tspan class="dim">- </tspan>GitHub Stats <tspan class="dim">----------------------------------</tspan></text>
     <text x="430" y="428" class="text">. <tspan class="label">Repos:</tspan> .. <tspan class="val">17</tspan> {<tspan class="label">Contributed:</tspan> <tspan class="val">0</tspan>} | <tspan class="label">Stars:</tspan> ....... <tspan class="val">0</tspan></text>
-    <text x="430" y="450" class="text">. <tspan class="label">Commits:</tspan> ................. <tspan class="val">95</tspan> | <tspan class="label">Followers:</tspan> ... <tspan class="val">56</tspan></text>
+    <text x="430" y="450" class="text">. <tspan class="label">Commits:</tspan> ................. <tspan class="val">96</tspan> | <tspan class="label">Followers:</tspan> ... <tspan class="val">56</tspan></text>
 </svg>
